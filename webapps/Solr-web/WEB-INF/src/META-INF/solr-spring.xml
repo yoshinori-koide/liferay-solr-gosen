@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+>
+	<bean class="com.liferay.portal.spring.context.PortletBeanFactoryPostProcessor" />
+	<bean id="com.liferay.portal.search.solr.server.BasicAuthSolrServer" class="com.liferay.portal.search.solr.server.BasicAuthSolrServer">
+		<constructor-arg type="java.lang.String" value="http://localhost:8080/solr" />
+	</bean>
+	<bean id="com.liferay.portal.kernel.search.IndexSearcher" class="com.liferay.portal.search.solr.SolrIndexSearcherImpl">
+		<property name="solrServer" ref="com.liferay.portal.search.solr.server.BasicAuthSolrServer" />
+	</bean>
+	<bean id="com.liferay.portal.kernel.search.IndexWriter" class="com.liferay.portal.search.solr.SolrIndexWriterImpl">
+		<property name="commit" value="true" />
+		<property name="solrServer" ref="com.liferay.portal.search.solr.server.BasicAuthSolrServer" />
+	</bean>
+	<bean id="com.liferay.portal.kernel.search.SearchEngine" class="com.liferay.portal.search.solr.SolrSearchEngineImpl">
+		<property name="searcher" ref="com.liferay.portal.kernel.search.IndexSearcher" />
+		<property name="writer" ref="com.liferay.portal.kernel.search.IndexWriter" />
+	</bean>
+</beans>
