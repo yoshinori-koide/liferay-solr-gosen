@@ -1,7 +1,7 @@
-Liferay 6.0.6 + Tomcat 6.0.29 の上に Solr3.1 + gosen と solr-web (Liferayプラグイン) がデプロイされた環境で、
+Liferay 6.0.6 + Tomcat 6.0.29 の上に Solr3.1 + lucene-gosen と solr-web (Liferayプラグイン) がデプロイされた環境で、
 Liferayデフォルトの検索ポートレットから日本語の検索がただしく出来るように調整したものです。
 
-webapps/solr が Solr3.1 + gosen のWebアプリケーション
+webapps/solr が Solr3.1 + lucene-gosen のWebアプリケーション
 webapps/solr-web が　Liferayプラグイン
 です。
 
