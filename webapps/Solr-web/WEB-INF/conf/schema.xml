@@ -18,7 +18,7 @@
 				<tokenizer class="solr.WhitespaceTokenizerFactory" />
 			</analyzer>
 		</fieldType>
-		<fieldType name="text_gosen" class="solr.TextField" positionIncrementGap="100">
+		<fieldType name="text_sen" class="solr.TextField" positionIncrementGap="100">
 		  <analyzer>
 		   <tokenizer class="org.apache.lucene.analysis.ja.JapaneseAnalyzer"/>
 		  </analyzer>
@@ -64,12 +64,12 @@
 		<fieldtype name="ignored" stored="false" indexed="false" class="solr.StrField" />
 	</types>
 	<fields>
-		<field name="comments" type="text_gosen" indexed="true" stored="true" />
-		<field name="content" type="text_gosen" indexed="true" stored="true" />
-		<field name="description" type="text_gosen" indexed="true" stored="true" />
-		<field name="name" type="text_gosen" indexed="true" stored="true" />
-		<field name="properties" type="text_gosen" indexed="true" stored="true" />
-		<field name="title" type="text_gosen" indexed="true" stored="true" />
+		<field name="comments" type="text_sen" indexed="true" stored="true" />
+		<field name="content" type="text_sen" indexed="true" stored="true" />
+		<field name="description" type="text_sen" indexed="true" stored="true" />
+		<field name="name" type="text_sen" indexed="true" stored="true" />
+		<field name="properties" type="text" indexed="true" stored="true" />
+		<field name="title" type="text_sen" indexed="true" stored="true" />
 		<field name="uid" type="string" indexed="true" stored="true" />
 		<field name="url" type="text" indexed="true" stored="true" />
 		<field name="userName" type="text" indexed="true" stored="true" />

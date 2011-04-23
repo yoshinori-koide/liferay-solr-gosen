@@ -26,6 +26,7 @@ import com.liferay.portal.kernel.search.IndexSearcher;
 import com.liferay.portal.kernel.search.Query;
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.Sort;
+import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -97,7 +98,7 @@ public class SolrIndexSearcherImpl implements IndexSearcher {
 		String snippet = StringUtil.merge(snippets, "...");
 
 		if (Validator.isNotNull(snippet)) {
-			snippet = snippet + "...";
+			snippet = HtmlUtil.extractText(snippet + "...");
 		}
 		else {
 			snippet = StringPool.BLANK;
